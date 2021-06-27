@@ -1,2 +1,2 @@
 # proj2
-application using python+flask+postgresql
+Web application using python+flask+postgresql.
