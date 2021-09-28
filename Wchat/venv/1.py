@@ -2,15 +2,21 @@ from flask import Flask,render_template
 app =Flask(__name__)
 @app.route('/')
 def index():
-    return render_template('index.html',moto='lets chat free')
+    return render_template('index.html',moto="be secure")
     
 @app.route('/about')
 def about():
-    return "<h1> Hello world about page</h1>"
+    return render_template('about.html')
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+@app.route('/login')
+def login():
+    return render_template('login.html')
+  
+  
 
-@app.route('/chatroom')
-def chatroom():
-    return "<h1>welcome to my chatroom</h1>"
+  
     
 if __name__ == "__main__":
     from waitress import serve

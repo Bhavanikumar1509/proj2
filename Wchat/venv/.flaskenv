@@ -1,2 +1,2 @@
 FLASK_ENV=development
-FLASK_APP=Wchat
+FLASK_APP=1.py

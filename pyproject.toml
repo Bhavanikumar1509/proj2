@@ -7,6 +7,9 @@ authors = ["kalavakuntaBHAV <<>>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 Flask-Waitress = "^0.0.1"
+opencv-python = "^4.5.3"
+Flask = "^2.0.1"
+py-dotenv = "^0.1"
 
 [tool.poetry.dev-dependencies]
 
