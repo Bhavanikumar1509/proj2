@@ -1,0 +1,1 @@
+run = "cd Wchat/venv;source bin/activate ;python3 1.py"

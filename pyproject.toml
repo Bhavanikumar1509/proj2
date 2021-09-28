@@ -10,6 +10,8 @@ Flask-Waitress = "^0.0.1"
 opencv-python = "^4.5.3"
 Flask = "^2.0.1"
 py-dotenv = "^0.1"
+csv2postgresql = "^0.1.2"
+flask-postgresql-wrapper = "^1.0.1"
 
 [tool.poetry.dev-dependencies]
 
