@@ -1,21 +1,110 @@
 <html>
+  <head>
+    <style>
+      body{
+      background-image :url('https://images.pexels.com/photos/326311/pexels-photo-326311.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-size: cover;
+    }
+    </style>
 
-   <head>
-      <title>Be Secure</title>
-   </head>
-	
-   <frameset rows = "50%,50%" framespacing="0" frameborder=no>
-      <frame name="top" src="https://proj2.kalavakuntabhav.repl.co/signup" />
-      <frameset cols="*,*" framespacing="0" frameborder=no>
-       <frame name = "right" src = "https://proj2.kalavakuntabhav.repl.co/login">
-      <frame name = "left" src = "https://proj2.kalavakuntabhav.repl.co/about">
-     
-       
-      <noframes>
-         <body>Your browser does not support frames.</body>
-      </noframes>
-      </frameset>
-      
-   </frameset>
-   
+    <link rel="stylesheet" href="{{url_for('static',filename='1.css')}}">
+    <script>
+      'use strict';
+
+window.addEventListener('load', windowLoaded, false);
+
+function windowLoaded() {
+	var 
+		tabs = document.querySelectorAll('.cd-tabs')[0],
+		login = document.querySelectorAll('a[data-content=\'login\']')[0],
+		signup = document.querySelectorAll('a[data-content=\'signup\']')[0],
+		tabContentWrapper = document.querySelectorAll('ul.cd-tabs-content')[0],
+		currentContent = document.querySelectorAll('li.selected')[0];
+
+	login.addEventListener('click', clicked, false);
+	signup.addEventListener('click', clicked, false);
+
+	function clicked(event) {
+		event.preventDefault();
+    
+		var selectedItem = event.currentTarget;
+		if (selectedItem.className === 'selected') {
+      // ...       
+		} else {
+			var selectedTab = selectedItem.getAttribute('data-content'),
+				selectedContent = document.querySelectorAll('li[data-content=\'' + selectedTab + '\']')[0];
+
+			if (selectedItem == login) {
+				signup.className = '';
+				login.className = 'selected';
+			} else {
+				login.className = '';
+				signup.className = 'selected';
+			}
+
+			currentContent.className = '';
+			currentContent = selectedContent;
+			selectedContent.className = 'selected';
+
+		}
+	}
+
+	var inputs = document.querySelectorAll('input');
+	for (var i = 0; i < inputs.length; i++) {
+		inputs[i].addEventListener('focus', inputFocused, false);
+	}
+
+	function inputFocused(event) {
+		var label = document.querySelectorAll('label[for=\''+ this.name +'\']')[0];
+		label.className = 'focused';
+	}
+}	
+
+      </script>
+  </head>
+  </head>
+  <body>
+    <div class="cd-tabs">
+      <nav>
+        <ul class="cd-tabs-navigation">
+          <li><a href="#" data-content="login" class="selected">login</a></li>
+          <li><a href="#" data-content="signup">signup</a></li>
+        </ul>
+      </nav>
+      <ul class="cd-tabs-content">
+        <li data-content="login" class="selected">
+          <form name="login-form">
+            <div class="form-fild">
+              <label for="username">username</label>
+              <input type="text" name="username">
+            </div>
+            <div class="form-fild">
+              <label for="password">password</label>
+              <input type="password" name="password">
+            </div>
+            <span class="error"></span>
+            <button type="submit">Submit</button>
+          </form>
+        </li>
+        <li data-content="signup">
+          <form name="signup-form">
+            <div class="form-fild">
+              <label for="username">username</label>
+              <input type="text" name="username">
+            </div>
+            <div class="form-fild">
+              <label for="password">password</label>
+              <input type="password" name="password">
+            </div>
+            <div class="form-fild">
+              <label for="password2">Re-Enter Password</label>
+              <input type="password" name="spassword2">
+            </div>
+            <span class="error"></span>
+            <button type="submit">Submit</button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>
